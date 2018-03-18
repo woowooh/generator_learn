@@ -456,3 +456,8 @@ Python中 yield 是一个关键词，它可以用来创建协程。
 
 '''
 
+'''
+总结： ！！！！！！
+
+1. 这个yield ，放在IO进行前， 将进行 IO操作 的对象 放入了 wait_read 或 wait_write 队列中，然后用 select 监听IO对象有无数据流入， 有的话才(schedule)放入 tasks列表中等待下次事件循环调用。本质上是避免， 系统IO无数据的时候， 程序调用 recv or read 的 IO 操作产生的等待。
+'''
